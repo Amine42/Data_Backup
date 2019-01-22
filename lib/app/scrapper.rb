@@ -72,7 +72,6 @@ class ScrapTownhall
       csv << ["Ville","Email"]
       @@name_and_email.map do |hash|
         csv << hash.keys + hash.values
-        # csv << hash.values
       end
     end
   end
@@ -82,7 +81,6 @@ class ScrapTownhall
     spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[-1]
     @@name_and_email.map.with_index do |hash, index|
       spreadsheet[index +1, 2] = hash
-
     end
     spreadsheet.save
     # spreadsheet.reload
