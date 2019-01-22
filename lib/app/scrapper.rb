@@ -39,7 +39,7 @@ class ScrapTownhall
 
   def get_townhall_email(url)
     doc = Nokogiri::HTML(open(url)) # On accède a l'url pour recuperé les email
-    email = doc.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]").text # Recupère l'email avec xpath
+    doc.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]").text # Recupère l'email avec xpath
   end
 
   # Création de la method qui récupere le nom et les email et qui les stock dans un tableaux
