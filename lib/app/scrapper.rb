@@ -52,7 +52,7 @@ class ScrapTownhall
     end
     #save_as_JSON # Save les email dans un fichier JSON
     #save_as_csv # Save les email dans un fichier CSV
-    save_as_spreadsheet
+    # save_as_spreadsheet
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
