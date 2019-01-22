@@ -4,8 +4,8 @@ Bundler.require
 
 
 # Récupère la class ScapTownhall
-$:.unshift File.expand_path("./../lib", __FILE__)
-require 'scrapper'
+File.expand_path('../Gemfile', File.dirname(__FILE__))
+require './lib/app/scrapper.rb'
 
 # Initialize un nouvelle objet
 
