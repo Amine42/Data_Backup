@@ -1,5 +1,11 @@
+# Récuperation des gem
+
 require 'nokogiri'
 require 'open-uri'
+
+# Création de la class ScrapTownhall :
+# Variables : contient une variable doc qui accède a l'url et 3 varibles qui contienne des tableau
+# Method : Contient une method qui recupère le nom des ville, une method qui recupère les url, une method qui recupére une email, une method qui recupere le nom de la ville et l'email
 
 class ScrapTownhall
   @@doc = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
@@ -7,16 +13,13 @@ class ScrapTownhall
   @@url = []
   @@name_and_email = []
 
-  def get_townhall_name
+  def initialize
     annuaire = @@doc.css("a.lientxt")
   
     annuaire.map do |element|
       @@name << { "ville" => element.text }
     end
-    @@name
-  end
-
-  def get_townhall_url
+  
     annuaire = @@doc.css("a.lientxt")
   
     annuaire.map do |element|
@@ -24,6 +27,7 @@ class ScrapTownhall
       link[0] = ""
       @@url << { "url" => "http://annuaire-des-mairies.com" + link }
     end
+    @@name
     @@url
   end
 
@@ -34,9 +38,9 @@ class ScrapTownhall
 
   def get_name_and_email_townhall
     @@url.map.with_index do |url, index|
-      #puts url["url"]
-      #puts @@name[index]["ville"]
+    
       email = get_townhall_email(url["url"])
+      
       if email == ""
         @@name_and_email << { @@name[index]["ville"] => "NO EMAIL" }
       else
@@ -46,4 +50,3 @@ class ScrapTownhall
     @@name_and_email
   end
 end
-

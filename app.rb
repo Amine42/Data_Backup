@@ -1,7 +1,11 @@
+# Récupère la class ScapTownhall
+
 require './lib/app/scrapper.rb'
 
-email = ScrapTownhall.new
-email.get_townhall_name
-email.get_townhall_url
+# Initialize un nouvelle objet
+
+email = ScrapTownhall.new 
+
+# Affiche tous les ville et les emails qui y corresponde
 
 puts email.get_name_and_email_townhall
