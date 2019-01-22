@@ -70,22 +70,23 @@ class ScrapTownhall
       csv << ["Ville","Email"]
       @@name_and_email.map do |hash|
         csv << hash.keys + hash.values
-        # csv << hash.values
       end
     end
   end
 
+  # Creation de la methode qui sauvegarde les donnees recuperer dans un spreadsheet grace a l'api
+
   def save_as_spreadsheet
     session = GoogleDrive::Session.from_config("../../config.json")
-    spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[0]
-    @@name_and_email.map.with_index do |hash, index|
-      name = hash.keys
-      name = name[0]
-      email = hash.values
-      email = email[0]
-      spreadsheet[index + 1, 1] = name
-      spreadsheet[index + 1, 2] = email
+    spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[0] # on dit a l'api que l'on souhaite modifier le spreadsheet qui porte X nom et la feuille numero 0 de ce meme spreadsheet
+    @@name_and_email.map.with_index do |hash, index| # on parcour le tableau qui contion les nom et les emails de chasque ville
+      name = hash.keys # je met la key du hash dans une variable, cette variable corespond au nom de la ville
+      name = name[0] # je transforme ma variable en string (sans cette ligne cette variable est de type array)
+      email = hash.values # je met la value du hash dans une variable, cette variable corespond a l'email de la ville
+      email = email[0] # je transforme ma variable en string (sans cette ligne cette variable est de type array)
+      spreadsheet[index + 1, 1] = name # le programme envoi le nom de la ville sur le spreadsheet
+      spreadsheet[index + 1, 2] = email # le programme envoi l'email de la ville sur le spreadsheet
     end
-    spreadsheet.save
+    spreadsheet.save # le programme sauvegarde les modifications sur le spreadsheet qu'il a modifier
   end
 end
