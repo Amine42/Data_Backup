@@ -1,10 +1,9 @@
 require 'bundler'
 Bundler.require
 
-
-
 # Récupère la class ScapTownhall
-$:.unshift File.expand_path("./../lib", __FILE__)
+
+$:.unshift File.expand_path("./../lib/app", __FILE__)
 require 'scrapper'
 
 # Initialize un nouvelle objet
