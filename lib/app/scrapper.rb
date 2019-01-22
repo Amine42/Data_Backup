@@ -1,5 +1,6 @@
 # Récuperation des gem
 
+require 'google_drive'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
@@ -53,6 +54,7 @@ class ScrapTownhall
     end
     #save_as_JSON # Save les email dans un fichier JSON
     #save_as_csv # Save les email dans un fichier CSV
+    save_as_spreadsheet
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
@@ -73,5 +75,16 @@ class ScrapTownhall
         # csv << hash.values
       end
     end
+  end
+
+  def save_as_spreadsheet
+    session = GoogleDrive::Session.from_config("../../config.json")
+    spreadsheet = session.spreadsheet_by_name("testcreatefile")
+    @@name_and_email.map do |hash|
+      
+
+    end
+    # puts session
+
   end
 end
