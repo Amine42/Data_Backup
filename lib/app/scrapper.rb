@@ -52,7 +52,7 @@ class ScrapTownhall
       break if index == 5
     end
     save_as_JSON # Save les email dans un fichier JSON
-    #save_as_csv # Save les email dans un fichier CSV
+    # save_as_csv
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
@@ -70,6 +70,7 @@ class ScrapTownhall
       csv << ["Ville","Email"]
       @@name_and_email.map do |hash|
         csv << hash.keys + hash.values
+        # csv << hash.values
       end
     end
   end
