@@ -28,7 +28,7 @@ class ScrapTownhall
     annuaire = @@doc.css("a.lientxt") # Recupère le texte du lien. ce texte corespond au nom de la ville
   
     annuaire.map do |element| # Parcours annuaire qui contient le nom des ville
-      link = element["href"] # Recupère le lien du a 
+      link = element["href"] # Recupère le lien du a (la valeur du Href)
       link[0] = "" # On remplace l'index 0 du lien par vide pour supprimer le point qui etait en trop
       @@name << { "city_name" => element.text } # Mais le nom des ville dans le tableaux name
       @@url << { "url" => "http://annuaire-des-mairies.com" + link } # Mais les lien dans le tableau url
