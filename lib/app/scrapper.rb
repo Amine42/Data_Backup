@@ -50,7 +50,7 @@ class ScrapTownhall
     @@url.map.with_index do |url, index| # Parcour url
       email = get_townhall_email(url["url"]) # Mais l'email dans une variable
       @@name_and_email << { @@name[index]["city_name"] => email == "" ? "NO EMAIL" : email } # On test le cas ou la mairie n'a pas d'email. on remplace par "NO EMAIL" si la mairie n'a pas d'email et si elle as un email on le met dans le hash.
-      break if index == 5
+      # break if index == 5
     end
     #save_as_JSON # Save les email dans un fichier JSON
     #save_as_csv # Save les email dans un fichier CSV
@@ -79,14 +79,15 @@ class ScrapTownhall
 
   def save_as_spreadsheet
     session = GoogleDrive::Session.from_config("../../config.json")
-    spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[-1]
+    spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[0]
     @@name_and_email.map.with_index do |hash, index|
-      spreadsheet[index +1, 2] = hash
-
+      name = hash.keys
+      name = name[0]
+      email = hash.values
+      email = email[0]
+      spreadsheet[index + 1, 1] = name
+      spreadsheet[index + 1, 2] = email
     end
     spreadsheet.save
-    # spreadsheet.reload
-    # puts session
-
   end
 end
