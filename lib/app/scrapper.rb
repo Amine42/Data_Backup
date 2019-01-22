@@ -25,16 +25,14 @@ class ScrapTownhall
   # Creation de la method initalize qui recupère le contenue des page et les stock dans c'est 2 tableaux
 
   def initialize
-    annuaire = @@doc.css("a.lientxt") # Recupère le texte du lien soit le nom de la ville
+    annuaire = @@doc.css("a.lientxt") # Recupère le texte du lien. ce texte corespond au nom de la ville
   
     annuaire.map do |element| # Parcours annuaire qui contient le nom des ville
-      @@name << { "city_name" => element.text } # Mais le nom des ville dans le tableaux name
       link = element["href"] # Recupère le lien du a 
       link[0] = "" # On remplace l'index 0 du lien par vide pour supprimer le point qui etait en trop
+      @@name << { "city_name" => element.text } # Mais le nom des ville dans le tableaux name
       @@url << { "url" => "http://annuaire-des-mairies.com" + link } # Mais les lien dans le tableau url
     end
-    @@name # Return name
-    @@url # Return url
   end
 
   # Création de la method qui recupere une email pour quond boucle dessus
@@ -50,7 +48,7 @@ class ScrapTownhall
     @@url.map.with_index do |url, index| # Parcour url
       email = get_townhall_email(url["url"]) # Mais l'email dans une variable
       @@name_and_email << { @@name[index]["city_name"] => email == "" ? "NO EMAIL" : email } # On test le cas ou la mairie n'a pas d'email. on remplace par "NO EMAIL" si la mairie n'a pas d'email et si elle as un email on le met dans le hash.
-      # break if index == 5
+      break if index == 5
     end
     #save_as_JSON # Save les email dans un fichier JSON
     #save_as_csv # Save les email dans un fichier CSV
