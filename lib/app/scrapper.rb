@@ -3,6 +3,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+require 'csv'
 
 # Création de la class ScrapTownhall :
 # Variables : contient une variable doc qui accède a l'url et 3 varibles qui contienne des tableau
@@ -54,8 +55,10 @@ class ScrapTownhall
       else 
         @@name_and_email << { @@name[index]["city_name"] => email } # Sinon on mais l'email dans le tableau
       end
+      break if index == 5
     end
-    save_as_JSON # Save les email dans un fichier JSON
+    #save_as_JSON # Save les email dans un fichier JSON
+    save_as_csv
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
@@ -63,6 +66,17 @@ class ScrapTownhall
   def save_as_JSON
     File.open("db/emails.json","w") do |save|
       save.write(@@name_and_email.to_json)
+    end
+  end
+
+  # Création de la method qui recupere le tableaux et l'ecrit dans une fichier CSV
+
+  def save_as_csv
+    CSV.open("db/emails.csv", "wb") do |csv|
+      #csv << @@name_and_email
+      @@name_and_email.map do |key, value|
+        puts value
+      end
     end
   end
 end
