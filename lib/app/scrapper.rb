@@ -67,7 +67,7 @@ class ScrapTownhall
 
   def save_as_csv
     CSV.open("db/emails.csv", "wb") do |csv|
-      #csv << @@name_and_email
+      csv << ["Ville","Email"]
       @@name_and_email.map do |hash|
         csv << hash.keys + hash.values
         # csv << hash.values
