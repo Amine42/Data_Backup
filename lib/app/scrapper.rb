@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-# Récuperation des gem
-
-# require 'google_drive'
-# require 'nokogiri'
-# require 'open-uri'
-# require 'json'
-# require 'csv'
-
-=======
->>>>>>> 96303305b6573e47f3759d24c8391048a3aa9735
 # Création de la class ScrapTownhall :
 # Variables : contient une variable doc qui accède a l'url et 3 varibles qui contienne des tableau
 # Method : 
