@@ -91,6 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  google-api-client
   google_drive
   nokogiri
   pry

@@ -58,18 +58,18 @@ class ScrapTownhall
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
 
   def save_as_JSON
-    File.open("db/emails.json","w") do |save|
-      save.write(@@name_and_email.to_json)
+    File.open("db/emails.json","w") do |save| # Ouvre le fichier JSON
+      save.write(@@name_and_email.to_json) # Sauvegarde la tableau dans le fichier JSON
     end
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier CSV
 
   def save_as_csv
-    CSV.open("db/emails.csv", "wb") do |csv|
-      csv << ["Ville","Email"]
-      @@name_and_email.map do |hash|
-        csv << hash.keys + hash.values
+    CSV.open("db/emails.csv", "wb") do |csv| # Ouvre le fichier csv
+      csv << ["Ville","Email"] # Mais en entete ville , email
+      @@name_and_email.map do |hash| # Parcour le tableaux pour recupéré les valeur
+        csv << hash.keys + hash.values # mais les valeur de ville et de email dans le fichier csv
       end
     end
   end
