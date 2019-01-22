@@ -1,5 +1,5 @@
-# Data_Backup
-
+# Data Backup
+This is a data harvesting program made write in ruby by students
 ## contributors
 
 [Lorenzo Chahid](https://github.com/modeuil) slack pseudo: `@Lorenzo chahid`
