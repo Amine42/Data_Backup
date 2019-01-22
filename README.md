@@ -1,6 +1,8 @@
 # Data Backup
 This is a data harvesting program made write in ruby by students
-## contributors
+|-----------------------------------------------------------------|
+
+# RESUME
 
 The program retrieves cities and emails from all the town halls of Val d'Oise and stores them in a JSON, CSV and Spreadsheet file
 
@@ -10,7 +12,7 @@ The method save_as_cvs retrieves the data in the cvs file
 
 The method save_as_spreadsheet scrapp to the datas to the google spreadsheet
 
-
+## contributors
 | ------------------------------------------------------------------------------------------------|
 
 [Lorenzo Chahid](https://github.com/modeuil) slack pseudo: `@Lorenzo chahid`
