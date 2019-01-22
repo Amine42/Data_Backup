@@ -2,10 +2,15 @@
 
 require 'nokogiri'
 require 'open-uri'
+require 'json'
 
 # Création de la class ScrapTownhall :
 # Variables : contient une variable doc qui accède a l'url et 3 varibles qui contienne des tableau
-# Method : Contient une method initialize qui recupère les nom est les url, une method qui recupere une email (pour pouvoir boucler sur cette method ) et une method qui recupere le nom des ville et les email tous sa lier dans un hash
+# Method : 
+# - Une method initialize qui recupère les nom est les url
+# - Une method qui recupère une email (pour pouvoir boucler sur cette method ) 
+# - Une method qui recupère le nom des ville et les email tous sa lier dans un hash
+# - Une method qui recupère le tableaux de nom de ville et d'email pour l'ecrire dans un fichier JSON
 
 class ScrapTownhall
   # Initialisation de mes variables
@@ -50,6 +55,14 @@ class ScrapTownhall
         @@name_and_email << { @@name[index]["city_name"] => email } # Sinon on mais l'email dans le tableau
       end
     end
-    @@name_and_email # Return le tableaux avec les nom et les email
+    save_as_JSON # Save les email dans un fichier JSON
+  end
+
+  # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
+
+  def save_as_JSON
+    File.open("db/emails.json","w") do |save|
+      save.write(@@name_and_email.to_json)
+    end
   end
 end

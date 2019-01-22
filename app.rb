@@ -8,4 +8,4 @@ email = ScrapTownhall.new
 
 # Affiche tous les ville et les emails qui y corresponde
 
-puts email.get_name_and_email_townhall
+email.get_name_and_email_townhall
