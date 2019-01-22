@@ -1,10 +1,15 @@
-# Récupère la class ScapTownhall
+require 'bundler'
+Bundler.require
 
-require './lib/app/scrapper.rb'
+
+
+# Récupère la class ScapTownhall
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'scrapper'
 
 # Initialize un nouvelle objet
 
-email = ScrapTownhall.new 
+email = ScrapTownhall.new
 
 # Affiche tous les ville et les emails qui y corresponde
 
