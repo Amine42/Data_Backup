@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Récuperation des gem
 
 # require 'google_drive'
@@ -6,6 +7,8 @@
 # require 'json'
 # require 'csv'
 
+=======
+>>>>>>> 96303305b6573e47f3759d24c8391048a3aa9735
 # Création de la class ScrapTownhall :
 # Variables : contient une variable doc qui accède a l'url et 3 varibles qui contienne des tableau
 # Method : 
@@ -51,8 +54,8 @@ class ScrapTownhall
       break if index == 5 # Bride le nombre de data a recuperer a 5
     end
     #save_as_JSON # Save les email dans un fichier JSON
-    #save_as_csv # Save les email dans un fichier CSV
-    save_as_spreadsheet
+    save_as_csv # Save les email dans un fichier CSV
+    #save_as_spreadsheet
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
