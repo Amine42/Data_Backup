@@ -1,3 +1,5 @@
+# Récupère tous les gems 
+
 require 'bundler'
 Bundler.require
 
