@@ -1,6 +1,6 @@
 # Data Backup
 This is a data harvesting program made write in ruby by students
-|-----------------------------------------------------------------|
+
 
 # RESUME
 
@@ -13,8 +13,6 @@ The method save_as_cvs retrieves the data in the cvs file
 The method save_as_spreadsheet scrapp to the datas to the google spreadsheet
 
 ## contributors
-| ------------------------------------------------------------------------------------------------|
-
 [Lorenzo Chahid](https://github.com/modeuil) slack pseudo: `@Lorenzo chahid`
 
 [Malik Ahres](https://github.com/Malik42) slack pseudo: `@Malik Ahres`
