@@ -79,11 +79,13 @@ class ScrapTownhall
 
   def save_as_spreadsheet
     session = GoogleDrive::Session.from_config("../../config.json")
-    spreadsheet = session.spreadsheet_by_name("testcreatefile")
-    @@name_and_email.map do |hash|
-      
+    spreadsheet = session.spreadsheet_by_name("testcreatefile").worksheets[-1]
+    @@name_and_email.map.with_index do |hash, index|
+      spreadsheet[index +1, 2] = hash
 
     end
+    spreadsheet.save
+    # spreadsheet.reload
     # puts session
 
   end
