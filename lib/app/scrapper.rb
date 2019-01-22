@@ -51,8 +51,13 @@ class ScrapTownhall
       @@name_and_email << { @@name[index]["city_name"] => email == "" ? "NO EMAIL" : email } # On test le cas ou la mairie n'a pas d'email. on remplace par "NO EMAIL" si la mairie n'a pas d'email et si elle as un email on le met dans le hash.
       break if index == 5
     end
+<<<<<<< HEAD
     save_as_JSON # Save les email dans un fichier JSON
     # save_as_csv
+=======
+    #save_as_JSON # Save les email dans un fichier JSON
+    #save_as_csv # Save les email dans un fichier CSV
+>>>>>>> bbb227c32de13b8034eeaf42b7e7b70fe0e97882
   end
 
   # Création de la method qui recupere le tableaux et l'ecrit dans une fichier JSON
