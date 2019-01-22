@@ -2,7 +2,7 @@
 This is a data harvesting program made write in ruby by students
 
 
-# RESUME
+## RESUME
 
 The program retrieves cities and emails from all the town halls of Val d'Oise and stores them in a JSON, CSV and Spreadsheet file
 
