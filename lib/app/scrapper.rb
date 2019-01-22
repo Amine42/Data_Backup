@@ -47,14 +47,8 @@ class ScrapTownhall
 
   def get_name_and_email_townhall
     @@url.map.with_index do |url, index| # Parcour url
-    
       email = get_townhall_email(url["url"]) # Mais l'email dans une variable
-
-      if email == "" # On test le cas ou la mairie n'a pas d'email
-        @@name_and_email << { @@name[index]["city_name"] => "NO EMAIL" } # on remplace par no email si la mairie n'a pas d'email
-      else 
-        @@name_and_email << { @@name[index]["city_name"] => email } # Sinon on mais l'email dans le tableau
-      end
+      @@name_and_email << { @@name[index]["city_name"] => email == "" ? "NO EMAIL" : email } # On test le cas ou la mairie n'a pas d'email. on remplace par "NO EMAIL" si la mairie n'a pas d'email et si elle as un email on le met dans le hash.
       break if index == 5
     end
     #save_as_JSON # Save les email dans un fichier JSON
@@ -75,7 +69,7 @@ class ScrapTownhall
     CSV.open("db/emails.csv", "wb") do |csv|
       #csv << @@name_and_email
       @@name_and_email.map do |key, value|
-        puts value
+        puts key
       end
     end
   end
