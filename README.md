@@ -4,6 +4,8 @@ This is a data harvesting program made write in ruby by students
 
 ## RESUME
 
+the first step to run `bundle install` at the root of foler
+
 The program retrieves cities and emails from all the town halls of Val d'Oise and stores them in a JSON, CSV and Spreadsheet file
 
 The method save_as_json allow to scrap the datas in to json files 
